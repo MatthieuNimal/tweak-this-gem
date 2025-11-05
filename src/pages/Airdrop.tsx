@@ -54,12 +54,19 @@ export default function Airdrop() {
                   className="bg-card border border-border rounded-2xl p-4 card-shadow"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <p className="text-white/60 text-xs mb-1">{bet.placedAt}</p>
-                      <p className="text-white font-semibold">
-                        Cote totale: {bet.totalOdds.toFixed(2)}
-                      </p>
-                    </div>
+                  <div>
+                    <p className="text-white/60 text-xs mb-1">
+                      {new Date(bet.placedAt).toLocaleDateString('fr-FR', {
+                        day: '2-digit',
+                        month: 'short',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      })}
+                    </p>
+                    <p className="text-white font-semibold">
+                      Cote totale: {bet.totalOdds.toFixed(2)}
+                    </p>
+                  </div>
                     <div
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${
                         bet.status === 'won'
@@ -89,11 +96,11 @@ export default function Airdrop() {
                   <div className="flex items-center justify-between pt-3 border-t border-border">
                     <div>
                       <p className="text-white/60 text-xs">Mise</p>
-                      <p className="text-white font-semibold">{bet.stake} 💰</p>
+                      <p className="text-white font-semibold">{bet.amount} {bet.currency === 'coins' ? '💰' : '💎'}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-white/60 text-xs">Gain potentiel</p>
-                      <p className="text-accent font-semibold">{bet.potentialWin.toFixed(0)} 💎</p>
+                      <p className="text-accent font-semibold">{bet.potentialDiamonds.toFixed(0)} 💎</p>
                     </div>
                   </div>
                 </div>
