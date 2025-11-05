@@ -12,7 +12,10 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    tsconfigPaths(),
+    tsconfigPaths({
+      root: './',
+      projects: ['./tsconfig.app.json'],
+    }),
     mode === "development" && componentTagger()
   ].filter(Boolean),
   resolve: {
@@ -20,4 +23,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' }
+  }
 }));
