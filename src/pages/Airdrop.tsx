@@ -96,11 +96,11 @@ export default function Airdrop() {
                   <div className="flex items-center justify-between pt-3 border-t border-border">
                     <div>
                       <p className="text-white/60 text-xs">Mise</p>
-                      <p className="text-white font-semibold">{bet.amount} {bet.currency === 'coins' ? '💰' : '💎'}</p>
+                      <p className="text-white font-semibold">{bet.stake} 💰</p>
                     </div>
                     <div className="text-right">
                       <p className="text-white/60 text-xs">Gain potentiel</p>
-                      <p className="text-accent font-semibold">{bet.potentialDiamonds.toFixed(0)} 💎</p>
+                      <p className="text-accent font-semibold">{bet.potentialWin.toFixed(0)} 💎</p>
                     </div>
                   </div>
                 </div>
