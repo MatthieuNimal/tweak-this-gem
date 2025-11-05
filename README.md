@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# EazyBet - Application de Paris Sportifs Fictifs
 
-## Project info
+Application web PWA de paris sportifs avec système de jetons et tap-to-earn, construite avec Next.js 13.
 
-**URL**: https://lovable.dev/projects/0d8185f9-aeb0-479d-a322-e5013e757b23
+## 🎯 Fonctionnalités V1
 
-## How can I edit this code?
+- **Interface sombre** inspirée de Winamax avec des cartes arrondies
+- **4 sections principales** accessibles via une barre d'onglets en bas :
+  - **Home** : Liste de matchs avec cotes (1/N/2) et 3 onglets internes (À venir, Joués, Résultats)
+  - **Classement** : Tableau des meilleurs joueurs
+  - **Mes paris** : Historique des paris placés
+  - **Profil** : Statistiques utilisateur et réalisations
+- **Tap-to-Earn** : Modal interactive pour gagner des jetons en cliquant
+- **Système de monnaie fictive** : Jetons (💰) et diamants (💎)
+- **State management** avec Zustand et persistance locale
+- **Mock data** pour simulation sans backend
 
-There are several ways of editing your application.
+## 🚀 Installation et Lancement
 
-**Use Lovable**
+### Prérequis
+- Node.js 18+
+- npm ou yarn
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0d8185f9-aeb0-479d-a322-e5013e757b23) and start prompting.
+### Installation des dépendances
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+npm install
+```
 
-**Use your preferred IDE**
+### Lancer l'application en développement
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+L'application sera accessible sur [http://localhost:3000](http://localhost:3000)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build de production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+npm run start
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🏗️ Structure du Projet
 
-## What technologies are used for this project?
+```
+project/
+├── app/
+│   ├── page.tsx              # Page d'accueil avec matchs et onglets
+│   ├── classement/page.tsx   # Page du classement
+│   ├── mes-paris/page.tsx    # Page des paris
+│   ├── profil/page.tsx       # Page du profil utilisateur
+│   ├── layout.tsx            # Layout principal
+│   └── globals.css           # Styles globaux
+├── components/
+│   ├── bottom-nav.tsx        # Barre de navigation en bas
+│   ├── header.tsx            # En-tête avec jetons et diamants
+│   ├── match-card.tsx        # Carte de match avec cotes
+│   ├── tap-to-earn-modal.tsx # Modal tap-to-earn
+│   └── ui/                   # Composants UI shadcn/ui
+├── lib/
+│   ├── store.ts              # Store Zustand (coins, diamonds)
+│   ├── mock-data.ts          # Données de matchs fictifs
+│   └── utils.ts              # Utilitaires
+└── package.json
+```
 
-This project is built with:
+## 🛠️ Technologies Utilisées
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Next.js 13** - Framework React avec App Router
+- **TypeScript** - Typage statique
+- **Tailwind CSS** - Styles utilitaires
+- **shadcn/ui** - Composants UI réutilisables
+- **Zustand** - State management léger
+- **Lucide React** - Icônes modernes
 
-## How can I deploy this project?
+## 🎮 Utilisation
 
-Simply open [Lovable](https://lovable.dev/projects/0d8185f9-aeb0-479d-a322-e5013e757b23) and click on Share -> Publish.
+### Navigation
+Utilisez la barre en bas pour naviguer entre les 4 sections principales.
 
-## Can I connect a custom domain to my Lovable project?
+### Gagner des jetons
+1. Cliquez sur le bouton jaune "Cliquer pour gagner des jetons" en bas de l'écran d'accueil
+2. Dans la modal, cliquez sur le jeton pour gagner des pièces
+3. Chaque clic = +1 jeton
+4. Les jetons sont sauvegardés localement
 
-Yes, you can!
+### Consulter les matchs
+- **À venir** : Matchs futurs avec cotes pour parier
+- **Joués** : Matchs en cours avec scores
+- **Résultats** : Matchs terminés avec résultats finaux
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📱 PWA & Mobile
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Cette version V1 est une application web. Pour une version mobile native avec Expo/React Native, une structure monorepo sera créée dans la V2.
+
+## 🔒 Sécurité
+
+Toutes les données sont fictives et stockées localement. Aucune monnaie réelle n'est impliquée.
+
+## 📝 Notes de Développement
+
+- Les données de matchs sont mockées dans `lib/mock-data.ts`
+- Le store utilise la persistance localStorage via Zustand
+- Les composants sont typés avec TypeScript
+- Design responsive adapté mobile et desktop
+- Thème sombre par défaut
+
+## 🚧 Futures Améliorations (V2)
+
+- Backend réel avec Supabase
+- Authentification utilisateur
+- Paris réels avec gestion des jetons
+- Notifications push
+- Version mobile Expo/React Native
+- Monorepo (apps/web, apps/mobile, packages/ui)
+
+## 📄 Licence
+
+Projet fictif à but éducatif - Pas de licence
