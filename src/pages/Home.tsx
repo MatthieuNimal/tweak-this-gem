@@ -17,9 +17,9 @@ export default function Home() {
   const { selections, clearSelections } = useBetStore();
   const { coins, deductCoins, addDiamonds } = useUserStore();
 
-  const filteredMatches = mockMatches.filter(match => match.status === activeTab);
+  const filteredMatches = mockMatches.filter((match: any) => match.status === activeTab);
 
-  const totalOdds = selections.reduce((acc, sel) => acc * sel.odds, 1);
+  const totalOdds = selections.reduce((acc: number, sel: any) => acc * sel.odds, 1);
   const stake = 10;
   const potentialWin = selections.length > 0 ? stake * totalOdds : 0;
 
@@ -78,7 +78,7 @@ export default function Home() {
           {/* Matches */}
           <div className="space-y-4 mb-6">
             {filteredMatches.length > 0 ? (
-              filteredMatches.map(match => (
+              filteredMatches.map((match: any) => (
                 <MatchCard key={match.id} match={match} />
               ))
             ) : (

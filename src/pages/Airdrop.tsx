@@ -7,7 +7,7 @@ export default function Airdrop() {
   const { bets } = useUserBetsStore();
 
   const totalBets = bets.length;
-  const wonBets = bets.filter(b => b.status === 'won').length;
+  const wonBets = bets.filter((b: any) => b.status === 'won').length;
   const winRate = totalBets > 0 ? ((wonBets / totalBets) * 100).toFixed(0) : '0';
 
   return (
@@ -48,7 +48,7 @@ export default function Airdrop() {
           {/* Bets List */}
           <div className="space-y-3">
             {bets.length > 0 ? (
-              bets.map((bet) => (
+              bets.map((bet: any) => (
                 <div
                   key={bet.id}
                   className="bg-card border border-border rounded-2xl p-4 card-shadow"
@@ -81,7 +81,7 @@ export default function Airdrop() {
                   </div>
 
                   <div className="space-y-2 mb-3">
-                    {bet.selections.map((sel, idx) => (
+                    {bet.selections.map((sel: any, idx: number) => (
                       <div key={idx} className="text-sm">
                         <p className="text-white/80">
                           {sel.match.homeTeam} vs {sel.match.awayTeam}

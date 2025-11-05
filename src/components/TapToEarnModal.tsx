@@ -19,7 +19,7 @@ interface FloatingText {
 export function TapToEarnModal({ open, onOpenChange }: TapToEarnModalProps) {
   const [tapCount, setTapCount] = useState(0);
   const [floatingTexts, setFloatingTexts] = useState<FloatingText[]>([]);
-  const addCoins = useUserStore((state) => state.addCoins);
+  const addCoins = useUserStore((state: any) => state.addCoins);
 
   const handleTap = (e: React.MouseEvent<HTMLDivElement>) => {
     setTapCount((prev) => prev + 1);

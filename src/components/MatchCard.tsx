@@ -15,8 +15,8 @@ export function MatchCard({ match }: MatchCardProps) {
     }
   };
 
-  const isSelected = (betType: BetType) => {
-    return selections.some(s => s.match.id === match.id && s.betType === betType);
+  const isSelected = (betType: any) => {
+    return selections.some((s: any) => s.match.id === match.id && s.betType === betType);
   };
 
   return (

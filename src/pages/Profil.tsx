@@ -11,7 +11,7 @@ export default function Profil() {
   const matchStatusStore = useMatchStatusStore();
 
   const totalBets = betsStore.bets.length;
-  const wonBets = betsStore.bets.filter(b => b.status === 'won').length;
+  const wonBets = betsStore.bets.filter((b: any) => b.status === 'won').length;
   const winRate = totalBets > 0 ? ((wonBets / totalBets) * 100).toFixed(0) : '0';
 
   const stats = [
